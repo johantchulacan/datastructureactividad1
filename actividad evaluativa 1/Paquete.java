@@ -1,19 +1,19 @@
-import java.time.LocalDateTime;
+
 
 public class Paquete {
     private String destinatario;
-    private LocalDateTime fechaIngreso;
+    private String fechaIngreso;
 
     public Paquete(String destinatario) {
         this.destinatario = destinatario;
-        this.fechaIngreso = LocalDateTime.now(); // guarda la fecha y hora actual
+        this.fechaIngreso = fechaIngreso(); // guarda la fecha y hora actual
     }
 
     public String getDestinatario() {
         return destinatario;
     }
 
-    public LocalDateTime getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
