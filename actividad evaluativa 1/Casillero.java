@@ -27,8 +27,19 @@ public class Casillero {
         this.paquete = null;
     }
 
-    
     public String toString() {
         return "Casillero " + numero + " -> " + (estaDisponible() ? "Disponible" : "Ocupado");
+    }
+
+    public void liberar() {
+        if (paquete != null) {
+            paquete.registrarSalida(); // guarda la fecha de salida
+            System.out.println("📦 Paquete retirado: " + paquete);
+            this.paquete = null;
+        } 
+        
+        else {
+            System.out.println("⚠ El casillero ya estaba vacío.");
+        }
     }
 }

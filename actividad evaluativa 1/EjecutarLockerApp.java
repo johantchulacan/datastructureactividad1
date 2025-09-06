@@ -12,12 +12,14 @@ public class EjecutarLockerApp {
 
         int opcion = 0;
 
-        while (opcion != 4) {
+        while (opcion != 5) {
             System.out.println("\n=== MENÚ PRINCIPAL ===");
             System.out.println("1. Registrar paquete en casillero");
             System.out.println("2. Consultar casilleros disponibles");
             System.out.println("3. Información de paquete en casillero");
-            System.out.println("4. Salir");
+            System.out.println("4. Retirar paquete de casillero"); // NUEVA OPCIÓN
+            System.out.println("5. Salir");
+
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
             sc.nextLine(); // limpiar buffer
@@ -25,7 +27,7 @@ public class EjecutarLockerApp {
             if (opcion == 1) {
                 System.out.print("Ingrese número de casillero (1-30): ");
                 int num = sc.nextInt();
-                sc.nextLine(); 
+                sc.nextLine();
                 if (num < 1 || num > 30) {
                     System.out.println("⚠ Casillero inválido.");
                 } else if (casilleros[num - 1].estaDisponible()) {
@@ -59,6 +61,15 @@ public class EjecutarLockerApp {
                 }
 
             } else if (opcion == 4) {
+                System.out.print("Ingrese número de casillero: ");
+                int num3 = sc.nextInt();
+                if (num3 < 1 || num3 > 30) {
+                    System.out.println("⚠ Casillero inválido.");
+                } else {
+                    casilleros[num3 - 1].liberar();
+                }
+
+            } else if (opcion == 5) {
                 System.out.println("👋 Cerrando aplicación...");
 
             } else {
